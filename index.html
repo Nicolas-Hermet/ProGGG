@@ -12,6 +12,7 @@
     <button id="signout_button" style="display: none;">Sign Out</button>
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
+    <pre id="gravity" style="white-space: pre-wrap;"></pre>
 
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
@@ -53,7 +54,7 @@
           authorizeButton.onclick = handleAuthClick;
           signoutButton.onclick = handleSignoutClick;
         }, function(error) {
-          appendPre(JSON.stringify(error, null, 2));
+          appendPre(JSON.stringify(error, null, 2), 'content');
         });
       }
 
@@ -94,8 +95,8 @@
        *
        * @param {string} message Text to be placed in pre element.
        */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
+      function appendPre(message, id) {
+        var pre = document.getElementById(id);
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
       }
@@ -118,26 +119,27 @@
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
-            appendPre('Titre, Artiste:');
+            appendPre('Titre, Artiste:', 'content');
             for (i = 0; i < range.values.length; i++) {
               var row = range.values[i];
               // Print columns A and B, which correspond to indices 0 and 1.
-              appendPre(row[0] + ', ' + row[1]);
+              appendPre(row[0] + ', ' + row[1], 'content');
             }
           } else {
-            appendPre('No data found.');
+            appendPre('No data found.', 'content');
           }
         }, function(response) {
-          appendPre('Error: ' + response.result.error.message);
+          appendPre('Error: ' + response.result.error.message, 'content');
         });
       }
 
       let gravitySensor = new GravitySensor({frequency: 60});
 
       gravitySensor.addEventListener("reading", e => {
-        console.log(`Gravity along the X-axis ${gravitySensor.x}`);
-        console.log(`Gravity along the Y-axis ${gravitySensor.y}`);
-        console.log(`Gravity along the Z-axis ${gravitySensor.z}`);
+        var pre = document.getElementById('gravity')
+        appendChild(`Gravity along the X-axis ${gravitySensor.x}`, 'gravity');
+        appendChild(`Gravity along the Y-axis ${gravitySensor.y}`, 'gravity');
+        appendChild(`Gravity along the Z-axis ${gravitySensor.z}`, 'gravity');
       });
 
       gravitySensor.start();
