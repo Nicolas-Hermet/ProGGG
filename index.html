@@ -165,19 +165,19 @@
         console.log(`Gravity along the Z-axis ${gravitySensor.z}`);
 
         if (gravitySensor.z > 3) {
-          setTimeout(() => {
-            ans.innerHTML = ''
-            ans.style.backgroundColor = ''
-          }, 2000);
+          // setTimeout(() => {
+          //   ans.innerHTML = ''
+          //   ans.style.backgroundColor = ''
+          // }, 2000);
           appendPre('Yeah !!', 'answer')
           // ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'red';
         }
         if (gravitySensor.z < -3) {
-          setTimeout(() => {
-            ans.innerHTML = ''
-            ans.style.backgroundColor = ''
-          }, 2000);
+          // setTimeout(() => {
+          //   ans.innerHTML = ''
+          //   ans.style.backgroundColor = ''
+          // }, 2000);
           appendPre('You suck !', 'answer')
           // ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'green';
