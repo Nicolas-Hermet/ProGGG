@@ -152,7 +152,7 @@
 
       let gravitySensor = new GravitySensor({frequency: 60});
       console.log(gravitySensor)
-      gravitySensor.addEventListener("reading", debounce(e => {
+      gravitySensor.addEventListener("reading", e => {
         var pre = document.getElementById('gravity')
         var ans = document.getElementById('answer')
         pre.innerHTML = `
@@ -180,31 +180,9 @@
           ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'green';
         }
-      }, 2000));
+      });
 
       gravitySensor.start();
-
-      function debounce(func, wait, immediate) {
-        var timeout;
-
-        return function executedFunction() {
-          var context = this;
-          var args = arguments;
-            
-          var later = function() {
-            timeout = null;
-            if (!immediate) func.apply(context, args);
-          };
-
-          var callNow = immediate && !timeout;
-        
-          clearTimeout(timeout);
-
-          timeout = setTimeout(later, wait);
-        
-          if (callNow) func.apply(context, args);
-        };
-      };
     </script>
 
     <script async defer src="https://apis.google.com/js/api.js"
