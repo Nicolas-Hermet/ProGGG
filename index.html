@@ -14,6 +14,8 @@
     <pre id="content" style="white-space: pre-wrap;"></pre>
     <pre id="gravity" style="white-space: pre-wrap;"></pre>
 
+    <div id="answer"></div>
+
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
       var CLIENT_ID = '454969930223-od2daf7791coo1lb9pcrng8ngi4mejd3.apps.googleusercontent.com';
@@ -137,6 +139,7 @@
       console.log(gravitySensor)
       gravitySensor.addEventListener("reading", e => {
         var pre = document.getElementById('gravity')
+        var ans = document.getElementById('answer')
         pre.innerHTML = `
         along the X-axis: ${gravitySensor.x}
         along the Y-axis: ${gravitySensor.y}
@@ -145,6 +148,23 @@
         console.log(`Gravity along the X-axis ${gravitySensor.x}`);
         console.log(`Gravity along the Y-axis ${gravitySensor.y}`);
         console.log(`Gravity along the Z-axis ${gravitySensor.z}`);
+
+        if (gravitySensor.z > 3) {
+          setTimeout(() => {
+            ans.innerHTML = ''
+            ans.style.backgroundColor = ''
+          }, 2000);
+          ans.innerHTML = "Yeah !!"
+          ans.style.backgroundColor = 'red';
+        }
+        if (gravitySensor.z < -3) {
+          setTimeout(() => {
+            ans.innerHTML = ''
+            ans.style.backgroundColor = ''
+          }, 2000);
+          ans.innerHTML = "Yeah !!"
+          ans.style.backgroundColor = 'green';
+        }
       });
 
       gravitySensor.start();
