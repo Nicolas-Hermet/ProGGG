@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
   </head>
   <body>
-    <p>Google Sheets API Quickstart</p>
+    <p>Wesh fait péter les watts ! Mais log toi d'abord.</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
@@ -121,14 +121,29 @@
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
+            console.log('range', range);
+            console.log('range.values', range.values[0]);
             appendPre('Titre, Artiste:', 'content');
-            for (i = 0; i < range.values.length; i++) {
-              var row = range.values[i];
-              // Print columns A and B, which correspond to indices 0 and 1.
-              appendPre(row[0] + ', ' + row[1], 'content');
-            }
+            var row = range.values[Math.floor(Math.random() * 53)+1];
+            // Print columns A and B, which correspond to indices 0 and 1.
+            appendPre(`${row[0]},  ${row[1]}`, 'content');
           } else {
             appendPre('No data found.', 'content');
+          }
+        }, function(response) {
+          appendPre('Error: ' + response.result.error.message, 'content');
+        });
+      }
+
+      function getAnotherSong() {
+        gapi.client.sheets.spreadsheets.values.get({
+          spreadsheetId: '1iVfssB6gcUKEQ23vgIXS6v8OtyCB_G_5-_01nGfCe7s',
+          range: 'Feuille 1!A2:B',
+        }).then(function(response) {
+          var range = response.result;
+          if (range.values.length > 0) {
+            var row = range.values[Math.floor(Math.random() * 53)+1];
+            appendPre(`${row[0]},  ${row[1]}`, 'content');
           }
         }, function(response) {
           appendPre('Error: ' + response.result.error.message, 'content');
@@ -153,6 +168,7 @@
           setTimeout(() => {
             ans.innerHTML = ''
             ans.style.backgroundColor = ''
+            getAnotherSong();
           }, 2000);
           ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'red';
@@ -161,6 +177,7 @@
           setTimeout(() => {
             ans.innerHTML = ''
             ans.style.backgroundColor = ''
+            getAnotherSong();
           }, 2000);
           ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'green';
@@ -168,7 +185,6 @@
       });
 
       gravitySensor.start();
-
     </script>
 
     <script async defer src="https://apis.google.com/js/api.js"
