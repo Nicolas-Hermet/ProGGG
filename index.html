@@ -169,7 +169,8 @@
             ans.innerHTML = ''
             ans.style.backgroundColor = ''
           }, 2000);
-          ans.innerHTML = "Yeah !!"
+          appendPre('Yeah !!', 'answer')
+          // ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'red';
         }
         if (gravitySensor.z < -3) {
@@ -177,7 +178,8 @@
             ans.innerHTML = ''
             ans.style.backgroundColor = ''
           }, 2000);
-          ans.innerHTML = "Yeah !!"
+          appendPre('You suck !', 'answer')
+          // ans.innerHTML = "Yeah !!"
           ans.style.backgroundColor = 'green';
         }
       });
