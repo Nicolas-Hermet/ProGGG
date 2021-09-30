@@ -2,17 +2,14 @@
 <h1>Angular App: {{ title }}, is working</h1>
 <p>Wesh ! Fait péter les watts !</p>
 
-ici c'est l'accel selon z : {{ toto }}
 
-<p> La ce sont les autres :
-  <ul>
-    <li>absolute: {{absolute}};</li>
-    <li>alpha: {{alpha}};</li>
-    <li>beta: {{beta}};</li>
-    <li>gamma: {{gamma}};</li>
-  </ul>
+<p> Orientation de ton téléphone: </p>
+<span>gamma: {{gamma}};</span>
 
-<p>Là les tracks</p>
+<p>Chaque fois que ce machin 🔼 passe entre -40 et 40 et que tu reviens, une nouvelle chanson s'affiche ci dessous : 🔽
+</p>
 <ul>
   <li *ngFor="let track of tracks">{{ track | json }}</li>
 </ul>
+
+enjoy.
