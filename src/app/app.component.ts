@@ -1,4 +1,4 @@
-import { PlaylistService } from './playlist.service';
+import { PlaylistService } from './services/playlist.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { fromEvent, interval, Subject, Subscription } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
@@ -53,7 +53,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.trackSubscription = this.triggerSubject
       .pipe(
-        debounceTime(200),
+        debounceTime(1000),
         takeUntil(this._destroyed$)
       )
       .subscribe((trackNumber: any) => {
