@@ -1,13 +1,19 @@
+import { Track } from './../interfaces/music.model';
 import { Injectable } from '@angular/core';
 import playlists from '../assets/playlist.json';
+import { Playlist } from '../interfaces/music.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlaylistService {
-  private tracks = playlists.tracks;
+  playlists: Playlist[] = [];
+  private tracks: Track[] = [];
 
-  constructor() {}
+  constructor() {
+    this.getPlaylists();
+    this.tracks = this.playlists[0].tracks;
+  }
 
   getRandomTrack() {
     let playlistLength = this.tracks.length;
@@ -23,5 +29,11 @@ export class PlaylistService {
 
   getTrack(num: number) {
     return this.tracks.splice(num, 1)[0];
+  }
+
+  private getPlaylists() {
+    playlists.playlists.forEach(playlist => {
+      this.playlists.push(playlist.title);
+    });    
   }
 }
