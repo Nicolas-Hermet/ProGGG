@@ -57,7 +57,7 @@ export class AppComponent implements OnInit, OnDestroy {
         takeUntil(this._destroyed$)
       )
       .subscribe((trackNumber: any) => {
-        this.tracks.push(this.playlistService.getTrack(trackNumber));
+        // this.tracks.push(this.playlistService.getTrack(trackNumber));
       });
   }
 
