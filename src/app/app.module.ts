@@ -6,15 +6,13 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
-import { PlaylistsComponent } from './playlists/playlists.component';
-import { PlaylistComponent } from './playlists/playlist/playlist.component';
+import { NananereComponent } from './nananere/nananere.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PlaylistsComponent,
-    PlaylistComponent
+    NananereComponent
   ],
   imports: [
     BrowserModule,

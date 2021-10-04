@@ -1,4 +1,4 @@
-import { Track, Playlist } from './../interfaces/music.model';
+import { Track, Playlist } from '../interfaces/music.model';
 import { Injectable } from '@angular/core';
 import playlists from '../../assets/playlist.json';
 

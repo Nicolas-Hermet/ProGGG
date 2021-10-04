@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PlaylistComponent } from './playlist.component';
+import { NananereComponent } from './nananere.component';
 
 describe('PlaylistComponent', () => {
-  let component: PlaylistComponent;
-  let fixture: ComponentFixture<PlaylistComponent>;
+  let component: NananereComponent;
+  let fixture: ComponentFixture<NananereComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PlaylistComponent ]
+      declarations: [ NananereComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PlaylistComponent);
+    fixture = TestBed.createComponent(NananereComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
