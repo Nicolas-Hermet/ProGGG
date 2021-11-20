@@ -2,7 +2,7 @@ import { PlaylistService } from '../services/playlist.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
-import { Playlist } from 'src/app/interfaces/music.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nananere',
@@ -20,10 +20,10 @@ export class NananereComponent implements OnInit, OnDestroy {
 
   triggerSubject = new Subject();
   private _destroyed$ = new Subject();
-  trackSubscription: Subscription | undefined;
-  permissionGranted: boolean = false;
 
-  constructor(private playlistService: PlaylistService) {
+  constructor(
+    private playlistService: PlaylistService,
+    private _route: ActivatedRoute) {
     window.addEventListener('deviceorientation', event => {
       if (event.absolute == null) {
         DeviceOrientationEvent.requestPermission()
@@ -38,6 +38,10 @@ export class NananereComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this._route.params.subscribe(params => {
+      this.inputPlaylist = params;
+      console.log('toto est bon', params);
+  });
     window.addEventListener('deviceorientation', event => {
       this.absolute = event.absolute;
       this.alpha = event.alpha;
