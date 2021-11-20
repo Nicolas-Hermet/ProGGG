@@ -10,15 +10,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./nananere.component.scss']
 })
 export class NananereComponent implements OnInit, OnDestroy {
-  @Input() playlistInput: Playlist | undefined;
-  title = 'ProGGG-Angular';
+  // Inputs
+  inputPlaylist: any;
   tracks: string[] = [];
+
+  // Sensors
   absolute: any;
   alpha: any;
   beta: any;
   gamma: any;
 
+  // Triggering
   triggerSubject = new Subject();
+  permissionGranted: boolean = false;
+
+
   private _destroyed$ = new Subject();
 
   constructor(
@@ -57,7 +63,7 @@ export class NananereComponent implements OnInit, OnDestroy {
       }
     });
 
-    this.trackSubscription = this.triggerSubject
+    this.triggerSubject
       .pipe(
         debounceTime(1000),
         takeUntil(this._destroyed$)

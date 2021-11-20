@@ -1,6 +1,6 @@
 import { Track, Playlist } from '../interfaces/music.model';
 import { Injectable } from '@angular/core';
-import playlists from '../../assets/playlist.json';
+import playlistsFile from '../../assets/playlist.json';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +31,8 @@ export class PlaylistService {
   }
 
   private getPlaylists() {
-    playlists.playlists.forEach((playlist: Playlist) => {
+    playlistsFile.playlists.forEach((playlist: Playlist) => {
       this.playlists.push({title: playlist.title, tracks: []});
-    });    
+    });
   }
 }
