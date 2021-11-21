@@ -32,7 +32,7 @@ export class PlaylistService {
 
   private getPlaylists() {
     playlistsFile.playlists.forEach((playlist: Playlist) => {
-      this.playlists.push({title: playlist.title, tracks: []});
+      this.playlists.push({title: playlist.title, tracks: playlist.tracks});
     });
   }
 }

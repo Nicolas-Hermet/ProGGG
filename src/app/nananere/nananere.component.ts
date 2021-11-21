@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { Track } from '../interfaces/music.model';
 
 @Component({
   selector: 'app-nananere',
@@ -12,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 export class NananereComponent implements OnInit, OnDestroy {
   // Inputs
   inputPlaylist: any;
-  tracks: string[] = [];
+  playlistTracks: Track[] = [];
 
   // Sensors
   absolute: any;
@@ -46,7 +47,7 @@ export class NananereComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this._route.params.subscribe(params => {
       this.inputPlaylist = params;
-      console.log('toto est bon', params);
+      this.playlistTracks = params.tracks
   });
     window.addEventListener('deviceorientation', event => {
       this.absolute = event.absolute;
