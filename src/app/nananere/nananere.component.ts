@@ -25,6 +25,9 @@ export class NananereComponent implements OnInit, OnDestroy {
   triggerSubject = new Subject();
   permissionGranted: boolean = false;
 
+  // Tracks proposed.
+  tracks: Track[] = [];
+
 
   private _destroyed$ = new Subject();
 
@@ -33,7 +36,7 @@ export class NananereComponent implements OnInit, OnDestroy {
     private _route: ActivatedRoute) {
     window.addEventListener('deviceorientation', event => {
       if (event.absolute == null) {
-        DeviceOrientationEvent.requestPermission()
+        (DeviceOrientationEvent as any).requestPermission()
           .then((permissionState: any) => {
             if (permissionState === 'granted') {
               this.permissionGranted = true;
@@ -70,7 +73,7 @@ export class NananereComponent implements OnInit, OnDestroy {
         takeUntil(this._destroyed$)
       )
       .subscribe((trackNumber: any) => {
-        // this.tracks.push(this.playlistService.getTrack(trackNumber));
+        this.tracks.push(this.playlistService.getTrack(trackNumber));
       });
   }
 
