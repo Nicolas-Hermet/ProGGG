@@ -1,0 +1,5 @@
+<img src="assets/images/ProG.svg" alt="mascotte">
+
+<div *ngFor="let playlist of playlists">
+  <a [routerLink]="['/nananere', playlist]">{{playlist.title}}</a>
+</div>

@@ -1,0 +1,16 @@
+<h1>Composant Nananere</h1>
+
+<p> Orientation de ton téléphone: </p>
+
+<span>gamma: {{gamma}};</span>
+
+<p>
+  Chaque fois que ce machin 🔼 passe entre -40 et 40 et que tu reviens,
+  une nouvelle chanson s'affiche ci dessous : 🔽
+</p>
+
+<ul>
+  <li *ngFor="let track of tracks">{{ track | json }}</li>
+</ul>
+
+enjoy.
