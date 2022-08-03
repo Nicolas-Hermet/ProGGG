@@ -16,8 +16,8 @@ export class ResultService {
     return this.score;
   }
 
-  increaseScore() {
-    this.score += 1;
+  increaseScore(): number {
+    return this.score += 1;
   }
 
   resetScore() {

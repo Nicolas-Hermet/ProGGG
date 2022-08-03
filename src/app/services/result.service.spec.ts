@@ -13,4 +13,22 @@ describe('ResultService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should have a score', () => {
+    expect(service.score).toBeDefined();
+  });
+
+  xdescribe('getScore', () => {
+    it('returns the score'), () => {
+      let score = service.score
+      expect(service.getScore()).toBe(score)
+    };
+  });
+
+  describe('increaseScore', () => {
+    it('increases the score'), () => {
+      let score = service.score
+      expect(service.increaseScore()).toBe(score + 1)
+    };
+  });
 });
