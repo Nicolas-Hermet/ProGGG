@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'splash-screen', component: SplashScreenComponent},
   {path: 'nananere', component: NananereComponent},
 ];
 
