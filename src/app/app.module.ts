@@ -10,15 +10,17 @@ import { NananereComponent } from './nananere/nananere.component';
 import { TrackOverComponent } from './track-over/track-over.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { InstructionsComponent } from './instructions/instructions.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    NananereComponent,
     TrackOverComponent,
     SplashScreenComponent,
     InstructionsComponent,
-    NananereComponent
+    ResultComponent
   ],
   imports: [
     BrowserModule,
