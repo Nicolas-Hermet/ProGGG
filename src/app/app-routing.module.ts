@@ -10,6 +10,7 @@ const routes: Routes = [
   {path: 'splash-screen', component: SplashScreenComponent},
   {path: 'instructions', component: InstructionsComponent},
   {path: 'nananere', component: NananereComponent},
+  {path: 'track-over', component: TrackOverComponent},
 ];
 
 @NgModule({

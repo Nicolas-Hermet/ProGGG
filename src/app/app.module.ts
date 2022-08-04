@@ -7,6 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { NananereComponent } from './nananere/nananere.component';
+import { TrackOverComponent } from './track-over/track-over.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 
@@ -14,6 +15,7 @@ import { InstructionsComponent } from './instructions/instructions.component';
   declarations: [
     AppComponent,
     HomeComponent,
+    TrackOverComponent,
     SplashScreenComponent,
     InstructionsComponent,
     NananereComponent
