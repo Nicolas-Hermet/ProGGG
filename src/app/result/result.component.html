@@ -1,0 +1,14 @@
+<p>Bravo! {{numberOfTracksFound}} chansons trouvées!</p>
+
+<p>Liste des chansons trouvées:</p>
+<div *ngFor="let track of foundTracks">
+    {{track.title}} par {{track.artist}}
+</div>
+
+<p>Liste des chansons ratées:</p>
+<div *ngFor="let track of missedTracks">
+    {{track.title}} par {{track.artist}}
+</div>
+
+<button>Retour</button>
+<button>Rejouer</button>
