@@ -8,12 +8,14 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { NananereComponent } from './nananere/nananere.component';
 import { SplashScreenComponent } from './splash-screen/splash-screen.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SplashScreenComponent,
+    InstructionsComponent,
     NananereComponent
   ],
   imports: [
